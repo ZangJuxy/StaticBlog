@@ -13,7 +13,7 @@ onlyTitle: true
   grid-template-columns: 50% 50%;
   grid-template-rows: 30px 30px;">
   <div>臧臧/男</div>
-  <div><i class="fa-solid fa-house-chimney"></i><a href="https://yuang01.github.io/">https://yuang01.github.io/</a></div>
+  <div><i class="fa-solid fa-house-chimney"></i><a href="https://zverify.gitee.io">https://zverify.gitee.io</a></div>
   <div>沧州师范学院/计算机科学与技术</div>
   <div><i class="fa-brands fa-git"></i><a href="https://gitee.com/ZVerify">https://gitee.com/ZVerify</a></div>
   <div>本科/2023年毕业</div>

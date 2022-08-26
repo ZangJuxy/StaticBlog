@@ -182,8 +182,8 @@ swiper:
   defaultRightBtnText: '' # 右边按钮的文字，空字符串则不显示
   defaultRightBtnLink: 'https://gitee.com/yuang01/hexo-theme-bamboo/repository/archive/dev.zip' # 右边的按钮的链接
   defaultDescTyped: true # defaultDesc文字是否开启打字特效  is typed
-  defaultDescTypedSpeed: 30 # defaultDesc 打字速度, typed typeSpeed
-  defaultDescTypedBackSpeed: 30 # defaultDesc 打字返回速度 typed backSpeed
+  defaultDescTypedSpeed: 150 # defaultDesc 打字速度, typed typeSpeed
+  defaultDescTypedBackSpeed: 150 # defaultDesc 打字返回速度 typed backSpeed
   defaultDescTypedLoop: true # defaultDesc文字的打字特效是否循环  typed loop
   # defaultAddToSwiper表示：当有文章设置了swiper: true的时候，将上面的 默认内容 放在轮播图的第一页
   defaultAddToSwiper: true # 开启这个，则loop默认为false
@@ -703,7 +703,7 @@ site_footer:
     #   url: https://github.com/yuang01/hexo-theme-bamboo
     # - icon: fas fa-qq
     #   url: tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1730241541
-  copyright: '
+  copyright: ''
   custom: # 根据需要自行取消注释，label: 'markdown格式'，会在下面继续增加内容
     # - label: '<br>'
     # - label: '[Hello World](http://baidu.com)'
@@ -838,3 +838,16 @@ CDN:
   typedJs: https://unpkg.com/typed.js@2.0.11
   jquery: https://unpkg.com/jquery@3.5.1/dist/jquery.min.js
   vue: https://unpkg.com/vue@2.6.11/dist/vue.min.js
+home_widget:
+  - class_name: my_github_container
+    id_name: my_github_container
+    order: -1
+    name: 测试日历
+    icon: fas fa-envelope
+    icon_color: blue
+    url: http://baidu.com
+    background: '#fff'
+    html: '
+      <div id="github_container"></div>
+      <script data-pjax src="/githubcalendar/index.js"></script>
+    '
