@@ -39,8 +39,8 @@ onlyTitle: true
 
 {% title h3, 项目 %}
 ### 线上办公系统
+`vue + vuex` `vue-router` `axios`  `element`
 `SpringBoot` `SpringSecurity` `MyBatisPlus` `MySQL` `Redis` `JWT` `EasyPOI` `Kaptcha` `Activiti`
-负责前端构建,服务器架构,后端开发
 责任描述：
 🍍 由本人独立开发完成，并持续迭代更新
 技术描述
