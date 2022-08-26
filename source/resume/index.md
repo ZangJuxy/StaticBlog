@@ -77,4 +77,7 @@ onlyTitle: true
 <p align="center">
 	👉 <a href="https://vampireachao.gitee.io/stream-query-docs/#/">官方文档</a> 👈
 </p>
+{% title h2, 为Hutool(Gitee 16.8k stars/Github 21.8k stars)贡献代码 %}
+🥝 对EasyStream中补充peekIdx()方法,修改mapMulti()方法适配于更高版本JDK,PR如下 
 
+<a href="https://gitee.com/dromara/hutool/pulls/770">https://gitee.com/dromara/hutool/pulls/770</a>
