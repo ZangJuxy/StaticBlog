@@ -838,16 +838,3 @@ CDN:
   typedJs: https://unpkg.com/typed.js@2.0.11
   jquery: https://unpkg.com/jquery@3.5.1/dist/jquery.min.js
   vue: https://unpkg.com/vue@2.6.11/dist/vue.min.js
-home_widget:
-  - class_name: my_github_container
-    id_name: my_github_container
-    order: -1
-    name: 测试日历
-    icon: fas fa-envelope
-    icon_color: blue
-    url: http://baidu.com
-    background: '#fff'
-    html: '
-      <div id="github_container"></div>
-      <script data-pjax src="/githubcalendar/index.js"></script>
-    '

@@ -1,0 +1,13 @@
+home_widget:
+  - class_name: my_github_container
+    id_name: my_github_container
+    order: -1
+    name: Gitee日历
+    icon: fas fa-envelope
+    icon_color: blue
+    url: https://gitee.com/ZVerify
+    background: '#fff'
+    html: '
+      <div id="github_container"></div>
+      <script data-pjax src="/githubcalendar/index.js"></script>
+    '
