@@ -1,38 +1,26 @@
 # 配置里面 线上地址写法：http://xxx，本地地址。可以在`source`文件夹下创建目录，假如创建img和videos目录，则引用的时候使用 /img/xxx 写法, /videos/xxx  ... 
 # 菜单
 menu:
-   Home:
+   🍭首页:
      url: /
-     icon: fas fa-home
-   Archives:
+   🍱文章:
      url: /archives
-     icon: fas fa-archive
-   Tags:
+   🍯标签:
      url: /tags
-     icon: fas fa-tags
-   Categories:
+   🐾分类:
      url: /categories
-     icon: fas fa-bookmark
-   About:
+   🍑关于我:
      url: /about
-     icon: fas fa-user
-   Friends:
+   🛠️友联:
      url: /friends
-   更多: # 这是二级菜单的写法
-    icon: fas fa-link
-    children:
-     #- name: 图库
-     #  url: /gallery
-     #  icon: fas fa-music
-     - name: 友情连接
-       url: /friends
-       icon: fas fa-film
-     - name: 关于我
-       url: /about
-       icon: fas fa-film
-     - name: 百度
-       url: http://baidu.com
-       icon: fas fa-film
+   🍌个人简历 :
+     url: /resume
+   🍇有关stream-query:
+     children:
+      - name: 📝Steam文档
+        url: /steam
+      - name: 📚README
+        url: /query
 
 # github地址, 头部导航右上角的github链接
 Github:
@@ -189,13 +177,13 @@ swiper:
   defaultVideoLoadingImg: 'https://img14.360buyimg.com/ddimg/jfs/t1/175057/18/19582/882056/60ee7ac8Ef0045710/202d2ad878684a3b.gif' # video loading img -- use .gif img, 视频预加载动画，使用gif图片作为loading，为空则视频没有预加载动画
   defaultTile: 'ZVerify' # 标题
   defaultDesc: ['本该止于秋水的寂寞，你三两句话又起了风'] #描 述，例如 ['煮酒洗净尘嚣，论知交', '万般付之一笑，共偕老']
-  defaultLeftBtnText: '封装 热门orm常用操作 封装 使用stream进行数据返回处理' # 左边按钮文字, 空字符串则不显示
+  defaultLeftBtnText: '' # 左边按钮文字, 空字符串则不显示
   defaultLeftBtnLink: 'https://vampireachao.gitee.io/stream-query-docs/#/' # 左边按钮链接
   defaultRightBtnText: '' # 右边按钮的文字，空字符串则不显示
   defaultRightBtnLink: 'https://gitee.com/yuang01/hexo-theme-bamboo/repository/archive/dev.zip' # 右边的按钮的链接
   defaultDescTyped: true # defaultDesc文字是否开启打字特效  is typed
-  defaultDescTypedSpeed: 100 # defaultDesc 打字速度, typed typeSpeed
-  defaultDescTypedBackSpeed: 50 # defaultDesc 打字返回速度 typed backSpeed
+  defaultDescTypedSpeed: 30 # defaultDesc 打字速度, typed typeSpeed
+  defaultDescTypedBackSpeed: 30 # defaultDesc 打字返回速度 typed backSpeed
   defaultDescTypedLoop: true # defaultDesc文字的打字特效是否循环  typed loop
   # defaultAddToSwiper表示：当有文章设置了swiper: true的时候，将上面的 默认内容 放在轮播图的第一页
   defaultAddToSwiper: true # 开启这个，则loop默认为false
@@ -715,7 +703,7 @@ site_footer:
     #   url: https://github.com/yuang01/hexo-theme-bamboo
     # - icon: fas fa-qq
     #   url: tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1730241541
-  copyright: '封装 热门orm常用操作 封装 使用stream进行数据返回处理 https://vampireachao.gitee.io/stream-query-docs/#/'
+  copyright: '
   custom: # 根据需要自行取消注释，label: 'markdown格式'，会在下面继续增加内容
     # - label: '<br>'
     # - label: '[Hello World](http://baidu.com)'
