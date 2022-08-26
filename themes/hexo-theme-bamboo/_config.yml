@@ -185,11 +185,11 @@ swiper:
   wave: true # 轮播图底下的波浪特效
   # 当没有文章设置swiper: true时候，轮播图会显示以下default默认内容，可自行切换对应内容
   defaultImg: 'https://pic4.zhimg.com/80/v2-5317ee3782ed2cdc733a907b0065f895_1440w.jpg' # 图片，没有则随机选取
-  defaultVideo: '/videoList/puppyBoxing.mp4' # video，min-width:992px show
+  defaultVideo: '/videoList/puppyBoxing.AVI' # video，min-width:992px show
   defaultVideoLoadingImg: 'https://img14.360buyimg.com/ddimg/jfs/t1/175057/18/19582/882056/60ee7ac8Ef0045710/202d2ad878684a3b.gif' # video loading img -- use .gif img, 视频预加载动画，使用gif图片作为loading，为空则视频没有预加载动画
   defaultTile: 'ZVerify' # 标题
   defaultDesc: ['本该止于秋水的寂寞，你三两句话又起了风'] #描 述，例如 ['煮酒洗净尘嚣，论知交', '万般付之一笑，共偕老']
-  defaultLeftBtnText: 'stream-query官方文档' # 左边按钮文字, 空字符串则不显示
+  defaultLeftBtnText: '封装 热门orm常用操作 封装 使用stream进行数据返回处理' # 左边按钮文字, 空字符串则不显示
   defaultLeftBtnLink: 'https://vampireachao.gitee.io/stream-query-docs/#/' # 左边按钮链接
   defaultRightBtnText: '' # 右边按钮的文字，空字符串则不显示
   defaultRightBtnLink: 'https://gitee.com/yuang01/hexo-theme-bamboo/repository/archive/dev.zip' # 右边的按钮的链接
@@ -380,12 +380,12 @@ socialAccounts:
   data: # data下面的值，不是固定个数的，可以自己增加或者删除
     QQ:
       icon: fas fa-qq
-      name: xxxxxxxx
-      url: 'http://www.baidu.com'
-    微信:
-      icon: fas fa-weixin
-      name: xxxxxxxx
-      url: 'http://www.baidu.com'
+      name: Zverify
+      url: ''
+    #微信:
+    #  icon: fas fa-weixin
+    #  name: xxxxxxxx
+    #  url: 'http://www.baidu.com'
 
 # 关于我 游戏
 games:
@@ -715,7 +715,7 @@ site_footer:
     #   url: https://github.com/yuang01/hexo-theme-bamboo
     # - icon: fas fa-qq
     #   url: tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1730241541
-  copyright: 'Copyright © 2019 - 2020 <a href="https://github.com/yuang01">yuang01</a> | Powered by <a href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a href="https://github.com/yuang01/theme">Bamboo</a> '
+  copyright: '封装 热门orm常用操作 封装 使用stream进行数据返回处理 https://vampireachao.gitee.io/stream-query-docs/#/'
   custom: # 根据需要自行取消注释，label: 'markdown格式'，会在下面继续增加内容
     # - label: '<br>'
     # - label: '[Hello World](http://baidu.com)'
@@ -801,13 +801,14 @@ wordcount:
 # 自己嵌入css或者script
 import:
   link:
-    # - <link href="xxx.css"  rel="stylesheet">
-    - 
+    -
+    -
     - 
   script: 
     # - <script src="xxx.js"></script>
     - <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
     - <script src="/live2d/index.js"></script>
+    - <script src="/meihua/index.js"></script>
 
 # 文章图片,不指定 img:xxx 的时候随机取下面的图片
 imgs:
