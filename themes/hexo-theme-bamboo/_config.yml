@@ -19,8 +19,11 @@ menu:
      children:
       - name: 📝Steam文档
         url: /steam
+      - name: 🍑Opp文档
+        url: /opp
       - name: 📚README
         url: /query
+
 
 # github地址, 头部导航右上角的github链接
 Github:
