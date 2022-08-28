@@ -2,32 +2,31 @@
 title: Redis设置小key过期时间
 date: 2022/8/28 22:04
 swiper: true # 是否将改文章放入轮播图中
-swiperImg: '![](https://zangzang.oss-cn-beijing.aliyuncs.com/img/b081857be95d8ae4c3cf8b1258109f1a.jpg)' # 该文章在轮播图中的图片，可以是本地目录下图片也可以是http://xxx图片
-img: '![](https://zangzang.oss-cn-beijing.aliyuncs.com/img/b081857be95d8ae4c3cf8b1258109f1a.jpg)' # 该文章图片，可以是本地目录下图片也可以是http://xxx图片
+swiperImg: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/b081857be95d8ae4c3cf8b1258109f1a.jpg' # 该文章在轮播图中的图片，可以是本地目录下图片也可以是http://xxx图片
+img: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/b081857be95d8ae4c3cf8b1258109f1a.jpg' # 该文章图片，可以是本地目录下图片也可以是http://xxx图片
 categories: 技巧 # 分类
 tags: ['Redis'] #标签
 top: true
 
 ---
 
-## 一级缓存命中场景
+## 场景
 
-### 第一种就是执行sql和参数必须相同
+首先是一个这样的业务场景，我们要做一个注册的功能，我们会通过用户输入的邮箱进行发送一个验证码，并且验证码有效期是3分钟，但是我们要去使用redis保存验证码，但是又不想用string去做。用hash去怎么实现呢
 
-![image-20220828134820485](https://zangzang.oss-cn-beijing.aliyuncs.com/img/image-20220828134820485.png)
+## 做法
 
-### 第二种就是相同的statementID
+### 保存
 
-![image-20220828135010630](https://zangzang.oss-cn-beijing.aliyuncs.com/img/image-20220828135010630.png)
+在我们redis中可以通过hash做，但是呢redis只提供了hash类型的大key的过期时间，这个时候问题就来了，我就想使用一个大key，然后每个邮箱的地址小key，验证码为value，这个时候我们只需要在验证码之后拼接一个时间
 
-我们第一个方法的statementID是com.zang.mybatis.mapper.UsearMapper.queryList
+![image-20220706161815789](https://zangzang.oss-cn-beijing.aliyuncs.com/img/image-20220706161815789.png)
 
-第二个方法是com.zang.mybatis.mapper.UsearMapper.queryListCopy
+此时就是获取我们的当前时间然后偏移三分钟转换为字符串之后拼接到验证码之后
 
-所以不会命中缓存
+### 验证
 
-### sqlSession必须一样(会话级缓存)
+![image-20220706163004834](https://zangzang.oss-cn-beijing.aliyuncs.com/img/image-20220706163004834.png)
 
-![image-20220828135539728](https://zangzang.oss-cn-beijing.aliyuncs.com/img/image-20220828135539728.png)
+我们这样的话取出来的时候就可以先把我们保存的过期时间取出来，然后获得当前时间进行比较如果当前时间在过期时间之后就代表我们的验证码已经过期了，如果没有的话就说明还没有过期，进行下边的思路
 
-### RowBounds返回行范围必须相同
