@@ -1,4 +1,9 @@
 # 提示：此文档中使用的方法皆需要引入`stream-core`
+# 更新预告
+- 鉴于如需调用Collectors里的方法每次都要写一串所以
+- Steam在1.1.7or1.1.8版本即可无需Steam.of().collect(Collectors.toMap(xxx));
+- 可直接Steam.of().toMap(xxx);
+
 ## of
 >`创建`steam流
 ```java
@@ -314,7 +319,8 @@ out>>[[1, 2], [3, 4], [5]]
 ```
 ## toTree
 >构造递归树,为了减轻数据库压力我们在构造递归树的时候经常一下把所有数据查出来，然后在Java中进行操作
->为了防止每次写大量的代码造成的臃肿,我们Steam提供了一个通用的方法便于操作
+>为了防止每次写大量的代码造成的臃肿,我们Steam提供了一个通用的方法便于操作 </br>
+>笔者感觉lambda也能写递归感觉很神奇所以写了一篇文章对其进行了详细解读[Lambda表达式也能写递归吗](https://zverify.gitee.io/2022/08/26/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B9%9F%E8%83%BD%E5%86%99%E9%80%92%E5%BD%92%E5%90%97/)
 ```java
 // 使用到的entity
 @Data
@@ -334,29 +340,29 @@ public static class Student {
 }
 ```
 ```java
-// 我们在构造数的时候通常会需要以下几个字段，(主键ID,父ID,子集合,断言是否为根节点(默认为父ID为null))
+// 我们在构造树的时候通常会需要以下几个字段，(主键ID,父ID,子集合,断言是否为根节点(默认为父ID为null))
 
 List<Student> studentTree = Steam
-   .of(
-      Student.builder().id(1L).name("dromara").matchParent(true).build(),
-      Student.builder().id(2L).name("baomidou").matchParent(true).build(),
-      Student.builder().id(3L).name("hutool").parentId(1L).build(),
-      Student.builder().id(4L).name("sa-token").parentId(1L).build(),
-      Student.builder().id(5L).name("mybatis-plus").parentId(2L).build(),
-      Student.builder().id(6L).name("looly").parentId(3L).build(),
-      Student.builder().id(7L).name("click33").parentId(4L).build(),
-      Student.builder().id(8L).name("jobob").parentId(5L).build()
-   )
-    // 仅需四个Lambde即可完成操作
-   .toTree(Student::getId, Student::getParentId, Student::setChildren, Student::getMatchParent);
+        .of(
+        Student.builder().id(1L).name("dromara").matchParent(true).build(),
+        Student.builder().id(2L).name("baomidou").matchParent(true).build(),
+        Student.builder().id(3L).name("hutool").parentId(1L).build(),
+        Student.builder().id(4L).name("sa-token").parentId(1L).build(),
+        Student.builder().id(5L).name("mybatis-plus").parentId(2L).build(),
+        Student.builder().id(6L).name("looly").parentId(3L).build(),
+        Student.builder().id(7L).name("click33").parentId(4L).build(),
+        Student.builder().id(8L).name("jobob").parentId(5L).build()
+        )
+        // 仅需四个Lambde即可完成操作
+        .toTree(Student::getId, Student::getParentId, Student::setChildren, Student::getMatchParent);
 
-out>>[SteamTest.Student(name=dromara, age=null, id=1, parentId=null, children=[
+        out>>[SteamTest.Student(name=dromara, age=null, id=1, parentId=null, children=[
         SteamTest.Student(name=hutool, age=null, id=3, parentId=1, children=[
-            SteamTest.Student(name=looly, age=null, id=6, parentId=3, children=null, matchParent=null)], matchParent=null),
+        SteamTest.Student(name=looly, age=null, id=6, parentId=3, children=null, matchParent=null)], matchParent=null),
         SteamTest.Student(name=sa-token, age=null, id=4, parentId=1, children=[
-            SteamTest.Student(name=click33, age=null, id=7, parentId=4, children=null, matchParent=null)], matchParent=null)], matchParent=true
-      SteamTest.Student(name=baomidou, age=null, id=2, parentId=null, children=[
+        SteamTest.Student(name=click33, age=null, id=7, parentId=4, children=null, matchParent=null)], matchParent=null)], matchParent=true
+        SteamTest.Student(name=baomidou, age=null, id=2, parentId=null, children=[
         SteamTest.Student(name=mybatis-plus, age=null, id=5, parentId=2, children=[
-            SteamTest.Student(name=jobob, age=null, id=8, parentId=5, children=null, matchParent=null)], matchParent=null)], matchParent=true)]
+        SteamTest.Student(name=jobob, age=null, id=8, parentId=5, children=null, matchParent=null)], matchParent=null)], matchParent=true)]
 
 ```

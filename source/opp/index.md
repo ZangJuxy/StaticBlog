@@ -1,5 +1,4 @@
 
-
 # 空检查属性获取-Opp
 
 &nbsp;&nbsp; 因为作者在`Hutool`中的写的`Opt`有些地方考虑不周，所以在我们`stream-query`中进行升级命名为`Opp`。</br>
@@ -36,21 +35,21 @@ String empty = null;
 Opp<String> required = Opp.of(empty);
 ```
 
-## blank
+## ofStr
 
 >返回一个包裹的元素可能为空的Opp对象(进行了空字符串的判断)
 
 ```java
-boolean aNull = Opp.blank("  ").isNull();
+boolean aNull = Opp.ofStr("  ").isNull();
 out>>true
 ```
 
-## empty(Collection)
+## ofColl
 
 >返回一个包裹的集合可能为空的Opp对象，额外判断了集合内元素为空的情况
 
 ```java
-Opp.empty(Collections.<String>emptyList()).isNull();
+Opp.ofColl(Collections.<String>emptyList()).isNull();
 out>>true
 ```
 
@@ -144,9 +143,148 @@ out>>Hello Steam!
 
 >判断包裹里的值存在并且与给定的条件是否满足 断言执行结果是否为true
 >如果满足条件则返回本身
->满足条件或者元素本身为空时返回一个返回一个空的Opp对象
+>如果给定的条件为null，抛出NPE
 
 ```java
-
+String name = "臧臧";
+Opp.of(name).filter(v->!"臧臧".equals(v)).orElseGet(() -> "zz");
+out>>zz
 ```
-// TODO
+
+## filterEqual()
+>将Opp包裹的对象的equals()方法包装起来，我们如果在过滤的时候只想要使用equals()方法则可以直接使用filterEqual()
+
+```java
+String name = "臧臧";
+String s = Opp.of(name).filterEqual("zz").orElseGet(() -> "zz");
+out>>zz
+```
+
+## map()
+>如果包裹里的值存在，就执行传入的操作并返回一个包裹了该操作返回值的Opp对象
+>如果不存在，返回一个空的Opp
+
+```java
+User user = User.builder().username("臧臧").nickname("ZVerify").build();
+Opp.of(user).map(User::getNickname).get();
+out>>ZVerify
+```
+
+## peek()
+>如果包裹里元素的值存在，就执行对应的操作，并返回本身
+>如果不存在，返回一个空的Opp
+>注意，传入的lambda中，对包裹内的元素执行赋值操作并不会影响到原来的元素
+
+```java
+User user = new User();
+// 相当于ifPresent的链式调用
+Opp.of("hutool").peek(user::setUsername).peek(user::setNickname);
+out>>(username=hutool, nickname=hutool)
+String name = Opp.of("hutool").peek(username -> username = "123").peek(username -> username = "456").get();
+out>>hutool
+```
+
+## peeks()
+>对peek()函数的动态参数调用，更加灵活
+
+```java
+User user = new User();
+Opp.of("hutool").peeks(user::setUsername, user::setNickname);
+out>>(username=hutool, nickname=hutool)
+```
+
+## typeOf
+### typeOfPeek
+>如果传入的lambda入参类型一致，或者是父类，就执行，目前不支持子泛型
+```java
+AtomicBoolean isExecute = new AtomicBoolean();
+Opp.of("").typeOfPeek((String str) -> isExecute.set(true));
+out>>isExecute.get() == true
+```
+
+
+### typeOfMap
+>如果传入的lambda入参类型一致，或者是父类，就执行，目前不支持子泛型
+```java
+AtomicBoolean isExecute = new AtomicBoolean();
+
+Opp<Boolean> opp = Opp.of("").typeOfMap((String s) -> {
+    isExecute.set(true);
+    return isExecute.get();
+});
+out>>opp.get() == true
+```
+
+### typeOfFilter
+>判断如果传入的类型一致，或者是父类，并且包裹里的值存在，并且与给定的条件是否满足
+>如果满足条件则返回本身
+>不满足条件或者元素本身为空时返回一个返回一个空的{@code Opp}
+
+```java
+Opp<String> opp = Opp.of("").typeOfFilter((String str) -> Opp.ofStr(str).isNull());
+out>>opp.isNonNull() == true
+```
+
+## or()
+>如果包裹里元素的值存在，就返回本身，如果不存在，则使用传入的操作执行后获得的Opp对象
+```java
+User user = User.builder().username("hutool").build();
+String name = userOpp.map(User::getNickname).or(() -> userOpp.map(User::getUsername)).get();
+out>>hutool
+```
+
+## orElse()
+>如果包裹里元素的值存在，则返回该值，否则返回传入的值
+```java
+String hutool = Opp.ofStr("").orElse("hutool");
+out>>hutool
+```
+
+## orElseRun()
+>如果包裹里元素的值存在，则返回该值，否则执行传入的操作
+>如果包裹里元素的值存在，则返回该值，否则执行传入的操作
+>如果值不存在，并且传入的操作为null,则抛出NPE
+```java
+// 这个方法推荐配合ifPresent()使用更佳
+// 判断一个值是否为空，为空执行一段逻辑,否则执行另一段逻辑
+final Map<String, Integer> map = new HashMap<>();
+final String key = "key";
+map.put("a", 1);
+Opp.of(map.get(key))
+    .ifPresent(v -> map.put(key, v + 1))
+    .orElseRun(() -> map.remove(key));
+out>>map.get(key) == null
+```
+
+## failOrElse()
+>异常则返回另一个可选值
+
+```java
+List<String> last = null;
+String npe = Opp.ofTry(() -> last.get(0)).failOrElse("hutool");
+out>>hutool
+```
+
+## orElseGet()
+>如果包裹里元素的值存在，则返回该值，否则返回传入的操作执行后的返回值
+
+```java
+String name = " ";
+String zName = Opp.ofStr(name).orElseGet(() -> "zz");
+out>>zz
+```
+
+## orElseThrow()
+### [无参]
+>如果包裹里的值存在，则返回该值，否则抛出 NoSuchElementException
+```java
+Opp.ofStr(" ").orElseThrow();
+throw>>java.util.NoSuchElementException: No value present
+```
+### [有参]
+>如果包裹里的值存在，则返回该值，否则执行传入的操作，获取异常类型的返回值并抛出
+>往往是一个包含无参构造器的异常 例如传入IllegalStateException::new
+```java
+Opp.empty().orElseThrow(NullPointerException::new);
+throw>>java.lang.NullPointerException
+```

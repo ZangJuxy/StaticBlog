@@ -66,7 +66,7 @@ onlyTitle: true
 🥝 使用SM4国密加密动态秘钥对用户密码进行加密解密
 
 {% title h3, 开源经历 %}
-{% title h2, (stream-query)开源成员之一 %}
+{% title h2, [stream-query]成员之一 %}
 [![阿超/stream-query](https://gitee.com/VampireAchao/stream-query/widgets/widget_card.svg?colors=4183c4,ffffff,ffffff,e3e9ed,666666,9b9b9b)](https://gitee.com/VampireAchao/stream-query)
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.vampireachao/stream-query.svg?label=Maven%20Central)](https://search.maven.org/artifact/io.github.vampireachao/stream-query)

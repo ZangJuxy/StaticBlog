@@ -9,8 +9,6 @@ menu:
      url: /tags
    🐾分类:
      url: /categories
-   🍑关于我:
-     url: /about
    🛠️友联:
      url: /friends
    🍌个人简历 :
@@ -409,8 +407,8 @@ copyright:
 # 首页座右铭
 motto:
   on: true
-  title: '座右铭'
-  content: '沉淀后我愿意做个温暖的人，有自己的喜好，有自己的原则，有自己的信仰，不急功近利，不浮夸轻薄。宠辱不惊，淡定安逸，心静如水，不忘初心，方得始终。——凌茜'
+  title: '关于我'
+  content: '我是一名刚刚升入大四的学生，致力于从事Java行业，目前刚刚裸辞掉工作，现在在家准备春招,在业余时间写一写开源，我的生活很规律，除了IDEA和Gitee还有乒乓球就没有什么事情了。每天学习完晚上会锻炼15分钟然后写一篇博客再洗个热水澡睡觉'
   background: 'url("https://img10.360buyimg.com/ddimg/jfs/t1/166587/8/21344/72069/6088c24fEda5fdeb6/f9730ab637b7ca47.png")' # url("xxx") or red or #000 or rgba() ..
 
 # 首页公告
