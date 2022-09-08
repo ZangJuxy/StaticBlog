@@ -35,7 +35,7 @@ onlyTitle: true
 `Java后端实习`
 
 - xxxx
-    - xxxx
+    - xxxx，
 
 {% title h3, 项目 %}
 ### 线上办公系统
@@ -51,19 +51,35 @@ onlyTitle: true
 🪙 采用RBAC模型，实现动态分配权限和菜单
 
 ### 个人博客
-`SpringBoot` `Sa-Token` `MyBatisPlus` `MySQL` `Redis` `JWT` `EasyExcel` `RabbitMQ` `OSS`
+
+   <a style="width: 713px; height: 67px; display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center; margin: 0 auto;" target="_blank" href="https://zverify.zang.link/">
+      <img style="margin:0; transform: translateX(0)" src="https://img.shields.io/badge/Redis-7.0.4-critical"/>
+      <img style="margin:0; transform: translateX(0)" src="https://img.shields.io/badge/JDK-17+-green.svg"/>
+      <img style="margin:0; transform: translateX(0)" src="https://img.shields.io/badge/springboot-2.2.2-orange"/>
+      <img style="margin:0; transform: translateX(0)" src="https://img.shields.io/badge/mysql-8.0.26-success"/>
+      <img style="margin:0; transform: translateX(0)" src="https://img.shields.io/badge/sa--token-1.30.0-blueviolet"/>
+      <img style="margin:0; transform: translateX(0)" src="https://img.shields.io/badge/mybatis--plus-3.5.2-green"/>
+      <img style="margin:0; transform: translateX(0)" src="https://img.shields.io/badge/quartz-2.3.2-ff69b4"/>
+      <img style="margin:0; transform: translateX(0)" src="https://img.shields.io/badge/rabbitmq-3.10.7-green"/>
+      <img style="margin:0; transform: translateX(0)" src="https://img.shields.io/badge/spring--websocket-5.2.2-9cf"/>
+      <img style="margin:0; transform: translateX(0)" src="https://img.shields.io/badge/stream--query-1.6.0-yello"/>
+      <img style="margin:0; transform: translateX(0)" src="https://img.shields.io/badge/SM4-%E5%8A%A8%E6%80%81%E7%A7%98%E9%92%A5-red"/>
+      <img style="margin:0; transform: translateX(0)" src="https://img.shields.io/badge/aliyun--sdk--oss-3.10.2-orange"/>
+   </a>
+
+
 责任描述： 
 🍍 参与项目接口文档编写，配合前端进行对接
 🍍 进行后端代码已经在Gitee开源地址为：https://gitee.com/ZVerify/zverify-blog 
-技术描述： 
-🥝 使用BitMap存储文章点赞量和浏览量等信息采用HyperLogLog存储主页访客，保证良好的并发性 
-🥝 使用Sa-Token作为安全框架，采用RBAC模型，实现动态分配权限和菜单，并接入了QQ第三方登录 
-🥝 使用AOP+自定义注解进行了日志记录，以及用户操作监控 
-🥝 发布文章对进行订阅的用户进行推送 
-🥝 对接第三方阿里云OSS服务 
-🥝 使用redis的bitmap和滑动滑动窗口算法对接口进行限流
-🥝 使用CompletableFuture异步编排对收到留言后的用户发提示邮件
-🥝 使用SM4国密加密动态秘钥对用户密码进行加密解密
+项目特点： 
+🥝 代码遵循阿里巴巴开发规范，利于开发者学习。
+🥝 因为本人有一些强迫症所以业务层代码极其规范
+🥝 接入第三方登录，减少注册成本
+🥝 支持在线聊天室以及私聊，聊天室支持撤回，语音输入，未读消息统计等功能
+🥝 支持动态权限修改，采用RBAC模型，前端菜单和后台权限实时更新。
+🥝 后台管理支持修改背景图片，博客配置等信息，操作简单，支持上传相册。
+🥝 异常捕获入库机制，当在线上环境业务层发成异常会进行入库，无需进入docker查看日志
+🥝 AOP自定义注解实现日志管理，以及定时任务执行日志管理
 
 {% title h3, 开源经历 %}
 {% title h2, [stream-query]成员之一 %}
