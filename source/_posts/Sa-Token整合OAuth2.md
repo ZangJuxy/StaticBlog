@@ -3,8 +3,8 @@
 title: Sa-Token整合OAuth2
 date: 2022/9/19 19:28
 swiper: false # 是否将改文章放入轮播图中
-swiperImg: '/medias/1.jpg' # 该文章在轮播图中的图片，可以是本地目录下图片也可以是http://xxx图片
-img: '/medias/1.jpg' # 该文章图片，可以是本地目录下图片也可以是http://xxx图片
+swiperImg: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/wallhaven-v97wl5.png' # 该文章在轮播图中的图片，可以是本地目录下图片也可以是http://xxx图片
+img: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/wallhaven-v97wl5.png' # 该文章图片，可以是本地目录下图片也可以是http://xxx图片
 categories: 第三方登录 # 分类
 tags: [OAuth2] #标签
 top: false
