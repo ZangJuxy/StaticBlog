@@ -8,7 +8,7 @@ onlyTitle: true
 ---
 
 
-## Java开发实习生
+## Java开发工程师
 <div style="display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 30px 30px;">
@@ -21,13 +21,15 @@ onlyTitle: true
 </div>
 
 {% title h3, 专业技能 %}
-
-🪙 熟悉掌握Java基础知识，熟悉集合，JUC、锁，设计模式等相关技术，有一定源码阅读能力。
+🪙 熟悉java语法，对JDK1.8新特性有一定了解，熟练Stream、CompletableFuture等，了解ThreadLocal上下文丢失解决方案
+🪙 熟悉集合，JUC、锁，设计模式，有一定源码阅读能力。
 🪙 熟悉Spring,SpringMVC,Mybatis,SpringBoot,SpringSecurity,Sa-Token等主流框架的使用。
+🪙 熟悉对接第三方服务，进行过web第三方登录，OSS云存储的开发
 🪙 熟悉MySQL数据库使用，了解索引、事务、MVCC等相关原理。
 🪙 熟悉Redis基本操作，了解数据类型、持久化策略、删除策略、缓存淘汰等机制。
-🪙 熟悉HTML,CSS,Vue等前端技术。
 🪙 熟练使用Eclipse，IDEA等开发工具，掌握Git版本控制工具和Maven构建项目。
+🪙 了解SpringCloud组件Feign、Ribbon、Nacos、Seata、Gateway、zookeeper、eureka、nacos等微服务组件
+🪙 了解HTML,CSS,Vue等前端技术。
 🪙 了解Linux常用命令和Docker使用，有项目部署经验。
 
 {% title h3, 工作 %}
@@ -88,7 +90,15 @@ onlyTitle: true
 🥝 第三方登录以及文件上传使用模板模式、策略模式
 
 {% title h3, 开源经历 %}
-{% title h2, [stream-query]成员之一 %}
+{% title h2, [stream-query]成员%}
+🥝 负责stream-core模块的维护，编写xxxOp以及Steam 
+部分pr如下：
+<a href="https://gitee.com/VampireAchao/stream-query/pulls/248/files">https://gitee.com/VampireAchao/stream-query/pulls/248</a>
+<a href="https://gitee.com/VampireAchao/stream-query/pulls/216/files">https://gitee.com/VampireAchao/stream-query/pulls/216</a>
+<p align="center">
+	👉 <a href="https://vampireachao.gitee.io/stream-query-docs/#/">官方文档</a> 👈
+</p>
+
 [![阿超/stream-query](https://gitee.com/VampireAchao/stream-query/widgets/widget_card.svg?colors=4183c4,ffffff,ffffff,e3e9ed,666666,9b9b9b)](https://gitee.com/VampireAchao/stream-query)
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.vampireachao/stream-query.svg?label=Maven%20Central)](https://search.maven.org/artifact/io.github.vampireachao/stream-query)
@@ -96,9 +106,7 @@ onlyTitle: true
 [![stars](https://img.shields.io/github/stars/vampireachao/stream-query.svg?style=social)](https://github.com/VampireAchao/stream-query)
 [![LICENSE](https://img.shields.io/badge/license-Apache%202-blue)](https://github.com/VampireAchao/stream-query/blob/master/LICENSE)
 [![java8](https://img.shields.io/badge/java-8-blue)](https://docs.oracle.com/javase/8/docs/)
-<p align="center">
-	👉 <a href="https://vampireachao.gitee.io/stream-query-docs/#/">官方文档</a> 👈
-</p>
+
 {% title h2, 为Hutool(Gitee 16.8k stars/Github 21.8k stars)贡献代码 %}
 🥝 对EasyStream中补充peekIdx()方法,修改mapMulti()方法适配于更高版本JDK,PR如下 
 
