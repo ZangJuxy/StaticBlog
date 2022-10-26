@@ -1,5 +1,5 @@
 var github_canlendar = (git_user, git_color) => {
-    var git_githubapiurl = "https://python-gitee-calendar-api.vercel.app/api?" + git_user;
+    var git_githubapiurl = "https://calendar.zverify.cn/api/?" + 'ZVerify';
     var git_fixed = 'fixed';
     var git_px = 'px';
     var git_month = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
@@ -7,7 +7,7 @@ var github_canlendar = (git_user, git_color) => {
     var git_oneyearbeforeday = '';
     var git_thisday = '';
     var git_amonthago = '';
-    var git_aweekago = '';
+    var git_aweekago = ''; 日历
     var git_weekdatacore = 0;
     var git_datacore = 0;
     var git_total = 0;
@@ -273,8 +273,8 @@ var loading_git = (color) => {
     var github_container = document.getElementById('github_container');
     var github_loading = document.getElementById('github_loading');
     var git_purple = ['#ebedf0', '#fdcdec', '#fc9bd9', '#fa6ac5', '#f838b2', '#f5089f', '#c4067e', '#92055e', '#540336', '#48022f', '#30021f',];
-    var git_green = ['#ebedf0', '#f0fff4', '#dcffe4', '#bef5cb', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#144620'];
-    var git_blue = ['#ebedf0', '#f1f8ff', '#dbedff', '#c8e1ff', '#79b8ff', '#2188ff', '#0366d6', '#005cc5', '#044289', '#032f62', '#05264c',];
+    var git_green = ['#ebedf0', '#68cc83', '#2ec250', '#099a0c', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#144620'];
+    var git_blue = ['#ebedf0', '#85b9ee', '#4b85c0', '#176ed7', '#79b8ff', '#2188ff', '#0366d6', '#005cc5', '#044289', '#032f62', '#05264c',];
     var git_color = git_green;
     if (github_container) {
         append_div_gitcalendar(github_container, loading_git(git_color[4]));
