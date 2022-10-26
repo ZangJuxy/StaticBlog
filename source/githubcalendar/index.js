@@ -274,7 +274,7 @@ var loading_git = (color) => {
     var github_container = document.getElementById('github_container');
     var github_loading = document.getElementById('github_loading');
     var git_purple = ['#ebedf0', '#fdcdec', '#fc9bd9', '#fa6ac5', '#f838b2', '#f5089f', '#c4067e', '#92055e', '#540336', '#48022f', '#30021f',];
-    var git_green = ['#ebedf0', '#68cc83', '#2ec250', '#099a0c', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#144620'];
+    var git_green = ['#fad9f8', '#fdcdec', '#fc9bd9', '#fa6ac5', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#144620'];
     var git_blue = ['#ebedf0', '#85b9ee', '#4b85c0', '#176ed7', '#79b8ff', '#2188ff', '#0366d6', '#005cc5', '#044289', '#032f62', '#05264c',];
     var git_color = git_green;
     if (github_container) {
