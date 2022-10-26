@@ -1,89 +1,107 @@
-<h1 align="center">stream-query</h1>
-<p align="center">
-  <strong>hardcore extreme opinionated.</strong>
-</p>
-<p align="center">
-	👉 <a href="https://vampireachao.gitee.io/stream-query-docs/#/">stream-query</a> 👈
-</p>
-<p align="center">
-    <a target="_blank" href="https://search.maven.org/artifact/io.github.vampireachao/stream-query">
-        <img src="https://img.shields.io/maven-central/v/io.github.vampireachao/stream-query.svg?label=Maven%20Central" />
-    </a>
-    <a target="_blank" href='https://www.apache.org/licenses/LICENSE-2.0.html'>
-        <img src='https://img.shields.io/badge/license-Apache%202-4EB1BA.svg'/>
-    </a>	
-    <a target="_blank" href='https://gitee.com/VampireAchao/stream-query'>
-        <img src='https://gitee.com/vampireachao/stream-query/badge/star.svg' alt='star'/>
-    </a>
-    <a target="_blank" href='https://github.com/VampireAchao/stream-query'>
-        <img src="https://img.shields.io/github/stars/vampireachao/stream-query.svg?style=social" alt="github star"/>
-    </a>
-</p>
+# query
 
-## 📚简介
+> `eq`和`in`函数会判空或空集合，**如果为空，不进行查询**
+>
+> `query`函数包含重载，可自行探索~
 
-封装 热门orm常用操作
-封装 使用`stream`进行数据返回处理
+| 方法名        | 中间操作说明                                                                                       |
+|------------|----------------------------------------------------------------------------------------------|
+| of         | 进行查询器构造【User::getId】，对user表进行查询，id作为条件，in或者eq(等于)查询                                          |
+| eq         | 条件构造与其参数相等                                                                                   |
+| in         | 条件构造包含其参数                                                                                    |
+| value      | 得到其指定属性(在每个操作中的意义不同)                                                                         |
+| condition  | 额外条件，传入lambda【w->w.eq(User::getId,1L)】，参数为LambdaQueryWrapper，如果lambda中返回值为null【w->null】不进行查询 |
+| peek       | 接收一个无返回值操作,对peek的数据进行操作(如果list对每一个元素进行操作)                                                    |
+| parallel   | 并行                                                                                           |
+| sequential | 串行                                                                                           |
+| query      | 执行查询                                                                                         |
 
-## 📝文档
+## One
 
-[中文文档](https://vampireachao.gitee.io/stream-query-docs/)   [仓库地址](https://gitee.com/VampireAchao/stream-query-docs)
-## 📦安装
+> 单条数据查询
 
-### 🍊Maven
+根据拼接条件查询单条数据，比之前版本定制化更高
 
-在项目的pom.xml的dependencies中加入以下内容:
+```java
+// 查询UserInfo实体类所对应表id为1的数据
+UserInfo userInfo = One.of(UserInfo::getId).eq(1L).query();
 
-```xml
-<!-- https://mvnrepository.com/artifact/io.github.vampireachao/stream-plugin-mybatis-plus -->
-<dependency>
-    <groupId>io.github.vampireachao</groupId>
-    <artifactId>stream-plugin-mybatis-plus</artifactId>
-    <version>1.1.6</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/io.github.vampireachao/stream-core -->
-<dependency>
-    <groupId>io.github.vampireachao</groupId>
-    <artifactId>stream-core</artifactId>
-    <version>1.1.6</version>
-</dependency>
-```
-### 🍊Gradle
+// 查询UserInfo实体类所对应表id为1的数据其名字
+String name = One.of(UserInfo::getId).eq(1L).value(UserInfo::getName).query();
 
-在项目的build.gradle的dependencies中加入以下内容:
-```Gradle
-implementation group: 'io.github.vampireachao', name: 'stream-core', version: '1.1.6'
+// 查询UserInfo实体类所对应表id为1，并且年龄小于等于20的人的名字
+String leAgeName = One.of(UserInfo::getId).eq(1L).value(UserInfo::getName)
+                .condition(w -> w.le(UserInfo::getAge, 20))
+                .query();
 ```
 
+## Many
 
-## 🐞提供bug反馈或建议
+> 多条数据查询
 
-提交问题反馈请说明正在使用的JDK版本、stream-query版本和相关依赖库版本。如果可以请尽量详细或加图片以便于我们去复现
+```java
+// 没有写查询条件的时候会将所有数据查出来
+List<UserInfo> userInfoList = Many.of(UserInfo::getId).query();
 
-[Gitee issue](https://gitee.com/VampireAchao/stream-query/issues)<br/>
-[Github issue](https://github.com/VampireAchao/stream-query/issues)
+// 获取所有名字为ZVerify的电子邮箱封装成list(串行执行)
+List<String> emailList = Many.of(UserInfo::getName).eq("ZVerify").value(UserInfo::getEmail).sequential().query();
 
-## 🏗️添砖加瓦️
-如果您感觉我们的代码有需要优化的地方或者有更好的方案欢迎随时提pr
-### 📚包说明
-| 包名            | 内容                       |
-|---------------|--------------------------|
-| stream-query  | 对Optional的优化和对Stream流的封装 |
-| stream-plugin | 对复杂的CRUD进行封装             |
+// 查询UserInfo实体类所对应表名字为ZVerify年龄小于等于20的电子邮箱封装成list
+List<String> emailList = Many.of(UserInfo::getName).eq("ZVerify").value(UserInfo::getEmail).parallel()
+                .condition(w -> w.le(UserInfo::getAge, 20))
+                .query();
+```
 
-### 🐾贡献代码的步骤
-1. 在`Gitee`或者`Github`上`fork`项目到自己的`repo`
-2. 把`fork`过去的项目也就是你的项目`clone`到你的本地
-3. 修改代码
-4. `commit`后`push`到自己的库
-5. 登录`Gitee`或`Github`在你仓库首页可以看到一个 `pull request` 按钮，点击它，填写一些说明信息，然后提交即可。
-   等待维护者合并
+## OneToOne
 
-### 📐PR遵照的原则
-`stream-query`欢迎任何人为`stream-query`添砖加瓦，贡献代码，不过维护者是一个强迫症患者，为了照顾病人，需要提交的pr（pull request）符合一些规范，规范如下：
+>一对一查询 ？ 将结果集通过匹配查询条件与value操作将结果集封装成map
+>
+>map的key为of里的筛选条件，value默认为entity对象，使用value之后为其传入lambda返回值
 
-- 注释完备，尤其每个新增的方法应按照Java文档规范标明方法说明、参数说明、返回值说明等信息，必要时请添加单元测试，如果愿意，也可以加上你的大名。
-- 新加的方法不要使用额外的第三方库方法
-- 我们如果关闭了你的issue或pr，请不要诧异，这是我们保持问题处理整洁的一种方式，你依旧可以继续讨论，当有讨论结果时我们会重新打开。
+```java
+// 返回map key为id，value为entity对象
+Map<Long, UserInfo> idUserMap = OneToOne.of(UserInfo::getId).in(userIds).query();
 
-powered by [GitHub Copilot](https://copilot.github.com/) 
+// 返回map key为id，value为查询到entity的name
+Map<Long, String> userIdNameMap = OneToOne.of(UserInfo::getId).in(userIds).value(UserInfo::getName).query();
+
+// 返回map key为id，value为一个boolean类型的值，因为我们传入的value(SFunction)是一个判断操作，判断key所对应的entity对象的name是否不为null，并且包含a字符串
+Map<Long, String> userIdHasANameMap = OneToOne.of(UserInfo::getId).in(userIds).condition(w -> w.select(UserInfo::getId, UserInfo::getName)).value(userInfo -> userInfo.getName() != null && userInfo.getName().contains("a")).query();
+```
+
+## OneToMany
+
+>一对多查询？ 将结果集将结果集通过匹配查询的数据查询出来然后封装成 <xxx,List<xxx>>类型的map
+>
+>map的key为of封装的查询条件，value是对其通过of里的条件进行分组之后的数据默认包装的是entity对象，如果使用value，包装的则为其传入lambda返回值
+
+```java
+// 返回map key为age,value中list的包装对象为entity对象(在进行peek等操作，且大数据量情况下的时候可以考虑并行)
+Map<Integer, List<UserInfo>> ageUsersMap = OneToMany.of(UserInfo::getAge).in(userAges).parallel().query();
+
+// 返回map key为age, value中的list的包装对象为entity对象的name
+Map<Integer, List<String>> userAgeNameMap = OneToMany.of(UserInfo::getAge).in(userAges).value(UserInfo::getName).query();
+
+// 返回map key为age, value中的list的包装对象为entity对象的name(新增的条件，只会查出年龄小于等于22岁的)
+Map<Integer, List<String>> userAgeNameMap = OneToMany.of(UserInfo::getAge).in(userAges).value(UserInfo::getName).condition(w -> w.le(UserInfo::getAge, 22)).query();
+```
+
+## OneToManyToOne
+
+>一对多对一查询？ 主子表关联查询将结果集将结果集通过匹配查询的数据查询出来然后封装成 <xxx,List<xxx>>类型的map
+>
+>map的key为of封装的主表字段，value是进行连表查询之后查询到的子表数据封装到了对应的key的list集合，默认list里边包裹的为entity，如果指定的话包装的则为其传入lambda返回值
+
+| 特殊方法    | 方法传参说明                           |
+| ----------- | -------------------------------------- |
+| of          | map的key，通过其进行筛选查询           |
+| value       | 主表中与子表关联的字段                 |
+| attachKey   | 子表中与主表关联的字段                 |
+| attachValue | 指定value中的list的包裹的数据          |
+| peek        | 对主表中的数据进行peek操作可传入消费者 |
+| attachPeek  | 对子表中的数据进行peek操作可传入消费者 |
+
+```java
+// 此时查询的主表为UserRole所对应的数据库表，map的key为其userId属性，条件为userids集合中所包含的，与子表关联的属性为roleId，子表与主表关联的属性为id
+Map<Long, List<RoleInfo>> userIdRoleInfosMap = OneToManyToOne.of(UserRole::getUserId).in(userIds).value(UserRole::getRoleId).attachKey(RoleInfo::getId).query();
+```

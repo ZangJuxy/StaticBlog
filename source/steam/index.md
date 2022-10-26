@@ -1,7 +1,6 @@
 # 提示：此文档中使用的方法皆需要引入`stream-core`
-# 更新预告
 - 鉴于如需调用Collectors里的方法每次都要写一串所以
-- Steam在1.1.7or1.1.8版本即可无需Steam.of().collect(Collectors.toMap(xxx));
+- Steam在1.1.11版本之后即可无需Steam.of().collect(Collectors.toMap(xxx));
 - 可直接Steam.of().toMap(xxx);
 
 ## of
@@ -123,7 +122,7 @@ out>>{臧臧=2, 阿超=1}
 ```java
 // 有些小伙伴可能不知道什么时候去使用这里我给小伙伴们举个例子
 // 假如我想要按照班里同学年龄分组
-Map<String, List<Student>> grByPAge = Steam.of(list).group(Student::getName);
+Map<String, List<Student>> grByPAge = Steam.of(list).group(Student::getAge);
 //我们在输出是是这样的
 out>>21=[
         SteamTest.Student(name=臧臧, age=21, sex=null), SteamTest.Student(name=阿超, age=21, sex=null)], 

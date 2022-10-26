@@ -2,7 +2,7 @@
 # 空检查属性获取-Opp
 
 &nbsp;&nbsp; 因为作者在`Hutool`中的写的`Opt`有些地方考虑不周，所以在我们`stream-query`中进行升级命名为`Opp`。</br>
-&nbsp;&nbsp; 在嵌套对象的属性获取中，由于子对象无法得知是否为`null`，每次获取属性都要检查属性兑现是否为`null`，使得代码会变得特备臃肿，因此使用`Opp`来优雅的链式获取属性对象值。
+&nbsp;&nbsp; 在嵌套对象的属性获取中，由于子对象无法得知是否为`null`，每次获取属性都要检查属性对象是否为`null`，使得代码会变得特备臃肿，因此使用`Opp`来优雅的链式获取属性对象值。
 
 ## empty
 
@@ -249,11 +249,11 @@ out>>hutool
 // 判断一个值是否为空，为空执行一段逻辑,否则执行另一段逻辑
 final Map<String, Integer> map = new HashMap<>();
 final String key = "key";
-map.put("a", 1);
-Opp.of(map.get(key))
-    .ifPresent(v -> map.put(key, v + 1))
-    .orElseRun(() -> map.remove(key));
-out>>map.get(key) == null
+        map.put("a", 1);
+        Opp.of(map.get(key))
+        .ifPresent(v -> map.put(key, v + 1))
+        .orElseRun(() -> map.remove(key));
+        out>>map.get(key) == null
 ```
 
 ## failOrElse()
@@ -261,8 +261,8 @@ out>>map.get(key) == null
 
 ```java
 List<String> last = null;
-String npe = Opp.ofTry(() -> last.get(0)).failOrElse("hutool");
-out>>hutool
+        String npe = Opp.ofTry(() -> last.get(0)).failOrElse("hutool");
+        out>>hutool
 ```
 
 ## orElseGet()
@@ -270,8 +270,8 @@ out>>hutool
 
 ```java
 String name = " ";
-String zName = Opp.ofStr(name).orElseGet(() -> "zz");
-out>>zz
+        String zName = Opp.ofStr(name).orElseGet(() -> "zz");
+        out>>zz
 ```
 
 ## orElseThrow()
@@ -279,12 +279,12 @@ out>>zz
 >如果包裹里的值存在，则返回该值，否则抛出 NoSuchElementException
 ```java
 Opp.ofStr(" ").orElseThrow();
-throw>>java.util.NoSuchElementException: No value present
+        throw>>java.util.NoSuchElementException: No value present
 ```
 ### [有参]
 >如果包裹里的值存在，则返回该值，否则执行传入的操作，获取异常类型的返回值并抛出
 >往往是一个包含无参构造器的异常 例如传入IllegalStateException::new
 ```java
 Opp.empty().orElseThrow(NullPointerException::new);
-throw>>java.lang.NullPointerException
+        throw>>java.lang.NullPointerException
 ```

@@ -19,6 +19,10 @@ menu:
         url: /steam
       - name: 🍑Opp文档
         url: /opp
+      - name: 🍑Sf文档
+        url: /sf
+      - name: 🍑Database文档
+        url: /database
       - name: 📚README
         url: /query
 
