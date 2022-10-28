@@ -16,8 +16,8 @@ avatar=https://images.waer.ltd/img/bachiyaojian.jpeg,
 description=惟有热爱，可抵岁月漫长! %}
 {% site 世纪末的架构师,
 url=http://www.zrkizzy.com,
-screenshot=http://static.zrkizzy.com/article/db5BlBTX.jpg,
-avatar=http://static.zrkizzy.com/avatar/HXdqipKH.jpeg,
+screenshot=https://blog.mylady.top/static/books/2022/5/2022-05-07_164031.png,
+avatar=https://z3.ax1x.com/2021/06/29/RdO4fO.jpg,
 description=疯狂的热爱夹带着文雅 %}
 {% site 小简技术栈,
 url=https://blog.ideaopen.cn,
