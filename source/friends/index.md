@@ -14,6 +14,12 @@ url=https://www.waer.ltd,
 screenshot=https://images.waer.ltd/img/纯白.png,
 avatar=https://images.waer.ltd/img/bachiyaojian.jpeg,
 description=惟有热爱，可抵岁月漫长! %}
+{% site 世纪末的架构师,
+url=http://www.zrkizzy.com,
+screenshot=http://static.zrkizzy.com/article/db5BlBTX.jpg,
+avatar=http://static.zrkizzy.com/avatar/HXdqipKH.jpeg,
+description=楼外的蒹葭、傍晚的月亮和鸡鸣寺的樱花 %}
+{% endsitegroup %}
 {% site 小简技术栈,
 url=https://blog.ideaopen.cn,
 screenshot=https://a.ideaopen.cn/JanYork/g0pdM4V7.jpg,
