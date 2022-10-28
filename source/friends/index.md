@@ -19,16 +19,16 @@ url=http://www.zrkizzy.com,
 screenshot=http://static.zrkizzy.com/article/db5BlBTX.jpg,
 avatar=http://static.zrkizzy.com/avatar/HXdqipKH.jpeg,
 description=疯狂的热爱夹带着文雅 %}
-{% endsitegroup %}
 {% site 小简技术栈,
 url=https://blog.ideaopen.cn,
 screenshot=https://a.ideaopen.cn/JanYork/g0pdM4V7.jpg,
 avatar=https://q1.qlogo.cn/g?b=qq&nk=747945307&s=640,
 description=楼外的蒹葭、傍晚的月亮和鸡鸣寺的樱花 %}
-{% endsitegroup %}
 {% site 纯情阿丁-丁启栋Blog,
 url=https://dingqidong.com/,
 screenshot=https://oss-api.dingqidong.com/blog/config/da59d2115a3b643d81d6d855eef3df7a.jpg,
 avatar=https://oss-api.dingqidong.com/blog/config/2022-10-16T07%3A31%3A19.483509a43d9b1f3877cb0e42283cb2d70fa570.jpg,
 description=阿丁在Coding，等你成为我的朋友！ %}
 {% endsitegroup %}
+
+
