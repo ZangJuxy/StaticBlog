@@ -182,10 +182,10 @@ swiper:
   defaultVideoLoadingImg: 'https://img14.360buyimg.com/ddimg/jfs/t1/175057/18/19582/882056/60ee7ac8Ef0045710/202d2ad878684a3b.gif' # video loading img -- use .gif img, 视频预加载动画，使用gif图片作为loading，为空则视频没有预加载动画
   defaultTile: 'ZVerify' # 标题
   defaultDesc: ['Failure always runs through life, but there are often episodes.'] #描 述，例如 ['煮酒洗净尘嚣，论知交', '万般付之一笑，共偕老']
-  defaultLeftBtnText: '' # 左边按钮文字, 空字符串则不显示
+  defaultLeftBtnText: 'stream-query' # 左边按钮文字, 空字符串则不显示
   defaultLeftBtnLink: 'https://vampireachao.gitee.io/stream-query-docs/#/' # 左边按钮链接
-  defaultRightBtnText: '' # 右边按钮的文字，空字符串则不显示
-  defaultRightBtnLink: 'https://gitee.com/yuang01/hexo-theme-bamboo/repository/archive/dev.zip' # 右边的按钮的链接
+  defaultRightBtnText: 'Gitee主页' # 右边按钮的文字，空字符串则不显示
+  defaultRightBtnLink: 'https://gitee.com/ZVerify' # 右边的按钮的链接
   defaultDescTyped: true # defaultDesc文字是否开启打字特效  is typed
   defaultDescTypedSpeed: 150 # defaultDesc 打字速度, typed typeSpeed
   defaultDescTypedBackSpeed: 150 # defaultDesc 打字返回速度 typed backSpeed
@@ -412,7 +412,7 @@ copyright:
 motto:
   on: true
   title: '关于我'
-  content: '我是一名刚刚升入大四的学生，致力于从事Java行业，目前刚刚裸辞掉工作，现在在家准备春招,在业余时间写一写开源，我的生活很规律，除了IDEA和Gitee还有乒乓球就没有什么事情了。每天学习完晚上会锻炼15分钟然后写一篇博客再洗个热水澡睡觉'
+  content: '我是一名刚刚升入大四的学生，致力于从事Java行业，目前刚刚裸辞掉工作，现在在家准备春招,在业余时间写一写开源,可以很骄傲的说我是Stream-Query的Committer,热衷于open source，我的生活很规律，除了IDEA,Gitee还有乒乓球就没有什么事情了。每天学习完晚上会锻炼15分钟然后写一篇博客再洗个热水澡睡觉'
   background: 'url("https://img10.360buyimg.com/ddimg/jfs/t1/166587/8/21344/72069/6088c24fEda5fdeb6/f9730ab637b7ca47.png")' # url("xxx") or red or #000 or rgba() ..
 
 # 首页公告
