@@ -263,3 +263,6 @@ esac
 ![image-20221106102358963](https://zangzang.oss-cn-beijing.aliyuncs.com/img/image-20221106102358963.png)
 
 这样就被触发了。
+
+
+> 我的博客即将同步至腾讯云开发者社区，邀请大家一同入驻：https://cloud.tencent.com/developer/support-plan?invite_code=ocj4bhqfct36
