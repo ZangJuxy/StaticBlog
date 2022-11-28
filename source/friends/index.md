@@ -29,6 +29,11 @@ url=https://dingqidong.com/,
 screenshot=https://oss-api.dingqidong.com/blog/config/da59d2115a3b643d81d6d855eef3df7a.jpg,
 avatar=https://oss-api.dingqidong.com/blog/config/2022-10-16T07%3A31%3A19.483509a43d9b1f3877cb0e42283cb2d70fa570.jpg,
 description=阿丁在Coding，等你成为我的朋友！ %}
+{% site 超、伟博客,
+url=https://www.macw.cc/,
+screenshot=https://tva4.sinaimg.cn/large/9bd9b167gy1g2rn8ha2csj21hc0u04qr.jpg,
+avatar=https://file.henaumcw.top/avatar/avator.jpg,
+description=问渠哪得清如许，唯有学习可破局 %}
 {% endsitegroup %}
 
 
