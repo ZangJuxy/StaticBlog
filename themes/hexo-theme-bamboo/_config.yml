@@ -180,8 +180,8 @@ swiper:
   defaultImg: 'https://zangzang.oss-cn-beijing.aliyuncs.com/img/a118f2434d8a885d06836c2f9f626a7.jpg' # 图片，没有则随机选取
   defaultVideo: '' # video，min-width:992px show
   defaultVideoLoadingImg: 'https://img14.360buyimg.com/ddimg/jfs/t1/175057/18/19582/882056/60ee7ac8Ef0045710/202d2ad878684a3b.gif' # video loading img -- use .gif img, 视频预加载动画，使用gif图片作为loading，为空则视频没有预加载动画
-  defaultTile: 'ZVerify' # 标题
-  defaultDesc: ['Failure always runs through life, but there are often episodes.'] #描 述，例如 ['煮酒洗净尘嚣，论知交', '万般付之一笑，共偕老']
+  defaultTile: 'Cizai' # 标题
+  defaultDesc: ['往日不可谏，来者犹可追'] #描 述，例如 ['煮酒洗净尘嚣，论知交', '万般付之一笑，共偕老']
   defaultLeftBtnText: 'stream-query' # 左边按钮文字, 空字符串则不显示
   defaultLeftBtnLink: 'https://vampireachao.gitee.io/stream-query-docs/#/' # 左边按钮链接
   defaultRightBtnText: 'Gitee主页' # 右边按钮的文字，空字符串则不显示
