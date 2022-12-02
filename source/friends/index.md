@@ -36,7 +36,7 @@ avatar=https://file.henaumcw.top/avatar/avator.jpg,
 description=问渠哪得清如许，唯有学习可破局 %}
 {% site BNTang,
 url=https://www.cnblogs.com/BNTang,
-screenshot=https://files.dbnuo.com/wallpaper/wallhaven-13mk9v.webp,
+screenshot=https://zangzang.oss-cn-beijing.aliyuncs.com/img/20221202093857.png,
 avatar=https://xiaohuihuit.github.io/images/avatar.jpg,
 description=IT技术类博客 %}
 {% endsitegroup %}
