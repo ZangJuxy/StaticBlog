@@ -34,6 +34,11 @@ url=https://www.macw.cc/,
 screenshot=https://tva4.sinaimg.cn/large/9bd9b167gy1g2rn8ha2csj21hc0u04qr.jpg,
 avatar=https://file.henaumcw.top/avatar/avator.jpg,
 description=问渠哪得清如许，唯有学习可破局 %}
+{% site BNTang,
+url=https://www.cnblogs.com/BNTang,
+screenshot=https://files.dbnuo.com/wallpaper/wallhaven-13mk9v.webp,
+avatar=https://xiaohuihuit.github.io/images/avatar.jpg,
+description=IT技术类博客 %}
 {% endsitegroup %}
 
 
